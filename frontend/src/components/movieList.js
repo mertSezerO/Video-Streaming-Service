@@ -4,6 +4,7 @@ import PageNavigator from "./pageNavigator";
 
 export default function MovieList({ genre }) {
   const [movies, setMovies] = useState();
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (!movies) {
@@ -26,11 +27,23 @@ export default function MovieList({ genre }) {
     <>
       <h3>{genre}</h3>
       <div className="item-list">
-        <PageNavigator direction={"prev"} setMovies={setMovies} />
+        <PageNavigator
+          direction={"prev"}
+          genre={genre}
+          setMovies={setMovies}
+          page={page}
+          setPage={setPage}
+        />
         {movies?.map((movie, index) => (
           <MovieItem movie={movie} key={index} />
         ))}
-        <PageNavigator direction={"next"} setMovies={setMovies} />
+        <PageNavigator
+          direction={"next"}
+          genre={genre}
+          setMovies={setMovies}
+          page={page}
+          setPage={setPage}
+        />
       </div>
     </>
   );

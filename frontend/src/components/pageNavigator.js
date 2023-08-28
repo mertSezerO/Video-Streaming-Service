@@ -1,11 +1,16 @@
-export default function PageNavigator({ direction, genre, setMovies }) {
-  let page = 1;
+export default function PageNavigator({
+  direction,
+  genre,
+  setMovies,
+  page,
+  setPage,
+}) {
   const effect = direction === "prev" ? -1 : 1;
   const noAction = direction === "prev" ? 1 : 5;
 
   function showDirection() {
     if (noAction !== page) {
-      page = page + effect;
+      setPage(page + effect);
     }
     fetch(
       "http://localhost:5000/movies/find/genres?genre=" +
@@ -19,8 +24,9 @@ export default function PageNavigator({ direction, genre, setMovies }) {
       }
     )
       .then((movies) => {
-        movies.json.then(({ movies }) => {
+        movies.json().then(({ movies }) => {
           setMovies(movies);
+          console.log(movies);
         });
       })
       .catch((err) => {
