@@ -19,13 +19,12 @@ export default function SearchBar() {
   }
 
   return (
-    <div id="filter">
-      <input
-        type="text"
-        placeholder="Search a movie, genre or a keyword"
-        value={context.searchValue}
-        onChange={filterMovies}
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Search a movie, genre or a keyword"
+      value={context.searchValue}
+      onChange={filterMovies}
+      onFocus={filterMovies}
+    />
   );
 }

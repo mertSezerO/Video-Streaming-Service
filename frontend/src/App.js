@@ -9,7 +9,7 @@ import SearchProvider from "./contexts/searchContext";
 import SearchPage from "./pages/search";
 
 import Layout from "./components/layout";
-
+/*For styling colors : Kopenhag */
 function App() {
   return (
     <AppProvider>

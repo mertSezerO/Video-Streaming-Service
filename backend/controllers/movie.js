@@ -77,7 +77,7 @@ exports.filterMovies = (req, res, next) => {
       },
     },
     {
-      $limit: 30,
+      $limit: 50,
     },
   ])
     .then((aggregatedData) => {

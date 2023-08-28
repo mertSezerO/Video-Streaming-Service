@@ -9,10 +9,10 @@ export default function SearchPage() {
 
   return (
     <>
-      <div id="filter-container">
+      <div className="filter-container">
         <SearchBar />
       </div>
-      <div id="search-item-container">
+      <div className="search-item-container">
         {context.filteredMovies &&
           context.filteredMovies.map((movie) => (
             <MovieItem movie={movie} key={movie.id} />
