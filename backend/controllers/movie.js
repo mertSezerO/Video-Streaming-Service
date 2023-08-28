@@ -33,24 +33,62 @@ exports.getPopularMovies = (req, res, next) => {
 
 exports.filterMovies = (req, res, next) => {
   const { search } = req.query;
-  //use aggregate with priority numbers
-  Movie.find({
-    $or: [
-      { original_title: { $regex: new RegExp(search, "i") } },
-      { "keywords.name": { $regex: new RegExp(search, "i") } },
-      { "genres.name": { $regex: new RegExp(search, "i") } },
-    ],
-  })
-    .limit(30)
-    .then((movies) => {
+  const regexSearch = new RegExp(search, "i");
+
+  Movie.aggregate([
+    {
+      $match: {
+        $or: [
+          {
+            original_title: { $regex: regexSearch },
+          },
+          {
+            "keywords.name": { $regex: regexSearch },
+          },
+          {
+            "genres.name": { $regex: regexSearch },
+          },
+        ],
+      },
+    },
+    {
+      $addFields: {
+        foundBy: {
+          $cond: {
+            if: {
+              $regexMatch: {
+                input: { $toString: "$original_title" },
+                regex: regexSearch,
+              },
+            },
+            then: 1,
+            else: 2,
+          },
+        },
+      },
+    },
+    {
+      $sort: { foundBy: 1 },
+    },
+    {
+      $project: {
+        _id: 1,
+        original_title: 1,
+      },
+    },
+    {
+      $limit: 30,
+    },
+  ])
+    .then((aggregatedData) => {
       return res.status(200).json({
-        movies: movies,
+        movies: aggregatedData,
       });
     })
     .catch((err) => {
-      console.log("There is an error occured");
+      console.log("An error occurred:", err);
       return res.status(500).json({
-        errorMessage: err,
+        errorMessage: err.message,
       });
     });
 };
