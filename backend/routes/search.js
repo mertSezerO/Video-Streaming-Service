@@ -5,4 +5,6 @@ Router.get("/populars", movieController.getPopularMovies);
 
 Router.get("/genres", movieController.getGenreMovies);
 
+Router.get("/recent", movieController.getRecentlyAddedMovies);
+
 module.exports = Router;

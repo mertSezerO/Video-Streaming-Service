@@ -94,3 +94,20 @@ exports.getGenreMovies = (req, res, next) => {
       });
     });
 };
+
+exports.getRecentlyAddedMovies = (req, res, next) => {
+  Movie.find()
+    .sort({ release_date: -1 })
+    .limit(10)
+    .then((movies) => {
+      return res.status(200).json({
+        movies: movies,
+      });
+    })
+    .catch((err) => {
+      console.log("There is an error occured");
+      return res.status(500).json({
+        errorMessage: err,
+      });
+    });
+};
