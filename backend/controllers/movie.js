@@ -2,7 +2,7 @@ const Movie = require("../models/movie");
 
 exports.getMovieWithCredits = (req, res, next) => {
   const movieId = req.params.movieId;
-  Movie.findOne({ _id: parseInt(movieId) })
+  Movie.findOne({ _id: movieId })
     .populate("credits")
     .then((movies) => {
       return res.status(200).json({

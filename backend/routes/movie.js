@@ -1,10 +1,10 @@
 const Router = require("express").Router();
 const movieController = require("../controllers/movie");
 
-Router.get("/movies/:movieId", movieController.getMovieWithCredits);
+Router.get("/:movieId", movieController.getMovieWithCredits);
 
-Router.get("/populars", movieController.getPopularMovies);
+Router.get("/find/populars", movieController.getPopularMovies);
 
-Router.get("/movies", movieController.filterMovies);
+Router.get("/", movieController.filterMovies);
 
 module.exports = Router;
