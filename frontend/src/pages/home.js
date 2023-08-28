@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import RecentMovieList from "../components/recentMovieList";
 import { HomeContext } from "../contexts/homeContext";
+import MovieList from "../components/movieList";
 
 export default function HomePage() {
   const context = useContext(HomeContext);
@@ -29,7 +30,11 @@ export default function HomePage() {
   return (
     <>
       <RecentMovieList />
-      <div className="item-list-container"></div>
+      <div className="item-list-container">
+        <MovieList genre={"science fiction"} />
+        <MovieList genre={"fantasy"} />
+        <MovieList genre={"action"} />
+      </div>
     </>
   );
 }

@@ -132,10 +132,18 @@
 
 .direction
 {
-  padding: 10px;
+  width: 25%;
+  padding: 15px;
   background-color: var(--search-input);
+  display: flex;
+  justify-content: center;
   color: var(--search);
   border: 1px ridge var(--search);
+}
+
+.show
+{
+  width: 50%;
 }
 
 .poster-page-list
@@ -156,4 +164,22 @@ justify-content: center;
   background-color: var(--search-input);
   padding: 3px;
   border-radius: 5px;
+}
+
+.poster-item
+{
+  display: flex;
+  justify-content: center;
+}
+
+.item-list
+{
+  display: flex;
+}
+
+.item-list-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

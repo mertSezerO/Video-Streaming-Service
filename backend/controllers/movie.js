@@ -94,9 +94,12 @@ exports.filterMovies = (req, res, next) => {
 };
 
 exports.getGenreMovies = (req, res, next) => {
-  const { genre } = req.query;
-  Movie.find({ "genres.name": genre })
-    .limit(30)
+  const { genre, page } = req.query;
+  const skip = 8 * (page - 1);
+  const regexSearch = new RegExp(genre, "i");
+  Movie.find({ "genres.name": regexSearch })
+    .skip(skip)
+    .limit(8)
     .then((movies) => {
       return res.status(200).json({
         movies: movies,
