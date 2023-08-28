@@ -9,15 +9,15 @@ export default function RecentMovieList() {
   function PageNavigator({ direction }) {
     function showDirectionMovie() {
       if (direction === "prev") {
-        const index = context.popularMovies.indexOf(context.showingMovie);
+        const index = context.recentlyAddedMovies.indexOf(context.showingMovie);
         index === 0
-          ? context.setShowingMovie(context.popularMovies[9])
-          : context.setShowingMovie(context.popularMovies[index - 1]);
+          ? context.setShowingMovie(context.recentlyAddedMovies[9])
+          : context.setShowingMovie(context.recentlyAddedMovies[index - 1]);
       } else {
-        const index = context.popularMovies.indexOf(context.showingMovie);
+        const index = context.recentlyAddedMovies.indexOf(context.showingMovie);
         index === 9
-          ? context.setShowingMovie(context.popularMovies[0])
-          : context.setShowingMovie(context.popularMovies[index + 1]);
+          ? context.setShowingMovie(context.recentlyAddedMovies[0])
+          : context.setShowingMovie(context.recentlyAddedMovies[index + 1]);
       }
     }
     return (

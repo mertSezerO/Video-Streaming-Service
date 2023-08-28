@@ -6,7 +6,7 @@ export default function RecentMoviePages() {
 
   function Page({ index }) {
     function showMovie() {
-      context.setShowingMovie(context.popularMovies[index]);
+      context.setShowingMovie(context.recentlyAddedMovies[index]);
     }
 
     return (

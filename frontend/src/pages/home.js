@@ -9,7 +9,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!context.popularMovies) {
+    if (!context.recentlyAddedMovies) {
       fetch("http://localhost:5000/movies/find/populars", {
         headers: {
           "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export default function HomePage() {
       })
         .then((movies) => {
           movies.json().then(({ movies }) => {
-            context.setPopularMovies(movies);
+            context.setRecentlyAddedMovies(movies);
             context.setShowingMovie(movies[0]);
           });
         })
