@@ -21,9 +21,11 @@ export default function RecentMovieList() {
       }
     }
     return (
-      <button onClick={showDirectionMovie}>
-        {direction === "prev" ? "<-" : "->"}
-      </button>
+      <div className="direction-item">
+        <button className="direction" onClick={showDirectionMovie}>
+          {direction === "prev" ? "<" : ">"}
+        </button>
+      </div>
     );
   }
 
