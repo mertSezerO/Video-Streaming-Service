@@ -115,3 +115,31 @@
 {
   height: 120px;
 }
+
+.poster-item-container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-page-list
+{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.poster-page-item
+{
+  margin: auto .7rem !important;
+}
+
+.poster-page
+{
+  width: 5%;
+  background-color: var(--main-colour);
+  color: var(--main-colour);
+  padding: 3px;
+}

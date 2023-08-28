@@ -1,11 +1,19 @@
 import { createContext, useState } from "react";
 
-const homeContext = createContext();
+const HomeContext = createContext();
 
 export default function HomeProvider({ children }) {
-  const state = {};
+  const [popularMovies, setPopularMovies] = useState();
+  const [showingMovie, setShowingMovie] = useState();
 
-  return <homeContext.Provider value={state}>{children}</homeContext.Provider>;
+  const state = {
+    popularMovies,
+    setPopularMovies,
+    showingMovie,
+    setShowingMovie,
+  };
+
+  return <HomeContext.Provider value={state}>{children}</HomeContext.Provider>;
 }
 
-export { homeContext };
+export { HomeContext };

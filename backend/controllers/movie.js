@@ -17,7 +17,7 @@ exports.getMovieWithCredits = (req, res, next) => {
 exports.getPopularMovies = (req, res, next) => {
   Movie.find()
     .sort({ popularity: -1 })
-    .limit(20)
+    .limit(10)
     .then((movies) => {
       return res.status(200).json({
         movies: movies,

@@ -1,21 +1,23 @@
 import { useContext } from "react";
-import { searchContext } from "../contexts/searchContext";
+import { SearchContext } from "../contexts/searchContext";
 
 export default function SearchBar() {
-  const context = useContext(searchContext);
+  const context = useContext(SearchContext);
 
   function filterMovies(e) {
     const searchTerm = e.target.value;
     context.setSearchValue(searchTerm);
-    fetch("http://localhost:5000/movies?search=" + searchTerm, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((movies) =>
-      movies.json().then(({ movies }) => {
-        context.setFilteredMovies(movies);
-      })
-    );
+    if (!context.filteredMovies) {
+      fetch("http://localhost:5000/movies?search=" + searchTerm, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((movies) =>
+        movies.json().then(({ movies }) => {
+          context.setFilteredMovies(movies);
+        })
+      );
+    }
   }
 
   return (
