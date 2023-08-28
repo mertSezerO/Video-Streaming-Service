@@ -2,7 +2,8 @@ import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import RecentMovieList from "../components/recentMovieList";
 import { HomeContext } from "../contexts/homeContext";
-import MovieList from "../components/movieList";
+import GenreMovieList from "../components/genreMovieList";
+import PopularMovieList from "../components/popularMovieList";
 
 export default function HomePage() {
   const context = useContext(HomeContext);
@@ -10,7 +11,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!context.recentlyAddedMovies) {
-      fetch("http://localhost:5000/movies/find/populars", {
+      fetch("http://localhost:5000/movies/find/recent", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -25,16 +26,32 @@ export default function HomePage() {
           console.log(err);
         });
     }
+    if (!context.popularMovies) {
+      fetch("http://localhost:5000/movies/find/populars", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((movies) => {
+          movies.json().then(({ movies }) => {
+            context.setPopularMovies(movies);
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, [navigate, context]);
 
   return (
     <>
       <RecentMovieList />
       <div className="item-list-container">
-        <MovieList genre={"science fiction"} />
-        <MovieList genre={"fantasy"} />
-        <MovieList genre={"action"} />
+        <GenreMovieList genre={"science fiction"} />
+        <GenreMovieList genre={"fantasy"} />
+        <GenreMovieList genre={"action"} />
       </div>
+      <PopularMovieList />
     </>
   );
 }

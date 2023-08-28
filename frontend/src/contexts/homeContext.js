@@ -4,6 +4,7 @@ const HomeContext = createContext();
 
 export default function HomeProvider({ children }) {
   const [recentlyAddedMovies, setRecentlyAddedMovies] = useState();
+  const [popularMovies, setPopularMovies] = useState();
   const [showingMovie, setShowingMovie] = useState();
 
   const state = {
@@ -11,6 +12,8 @@ export default function HomeProvider({ children }) {
     setRecentlyAddedMovies,
     showingMovie,
     setShowingMovie,
+    popularMovies,
+    setPopularMovies,
   };
 
   return <HomeContext.Provider value={state}>{children}</HomeContext.Provider>;

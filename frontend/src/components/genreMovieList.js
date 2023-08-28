@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import MovieItem from "./movieItem";
-import PageNavigator from "./pageNavigator";
+import PageNavigator from "./genrePageNavigator";
 
-export default function MovieList({ genre }) {
+export default function GenreMovieList({ genre }) {
   const [movies, setMovies] = useState();
   const [page, setPage] = useState(1);
 

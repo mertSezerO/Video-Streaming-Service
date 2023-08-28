@@ -1,4 +1,4 @@
-export default function PageNavigator({
+export default function GenrePageNavigator({
   direction,
   genre,
   setMovies,
