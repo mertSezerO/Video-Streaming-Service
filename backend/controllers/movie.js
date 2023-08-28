@@ -77,3 +77,20 @@ exports.filterMovies = (req, res, next) => {
       });
     });
 };
+
+exports.getGenreMovies = (req, res, next) => {
+  const { genre } = req.query;
+  Movie.find({ "genres.name": genre })
+    .limit(30)
+    .then((movies) => {
+      return res.status(200).json({
+        movies: movies,
+      });
+    })
+    .catch((err) => {
+      console.log("There is an error occured");
+      return res.status(500).json({
+        errorMessage: err,
+      });
+    });
+};

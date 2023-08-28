@@ -7,6 +7,13 @@ require("dotenv").config();
 app.use(express.static("controllers/"));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(
+  cors({
+    origin: "http://localhost:5001",
+    credentials: true,
+  })
+);
+
 const movieRouter = require("./routes/movie");
 app.use("/movies", movieRouter);
 
