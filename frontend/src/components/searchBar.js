@@ -7,7 +7,7 @@ export default function SearchBar() {
   function filterMovies(e) {
     const searchTerm = e.target.value;
     context.setSearchValue(searchTerm);
-    fetch("http://localhost:3000/movies?regex=" + searchTerm, {
+    fetch("http://localhost:5000/movies?search=" + searchTerm, {
       headers: {
         "Content-Type": "application/json",
       },

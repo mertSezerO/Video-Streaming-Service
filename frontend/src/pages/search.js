@@ -14,7 +14,9 @@ export default function SearchPage() {
       </div>
       <div id="search-item-container">
         {context.filteredMovies &&
-          context.filteredMovies.map((movie) => <MovieItem movie={movie} />)}
+          context.filteredMovies.map((movie) => (
+            <MovieItem movie={movie} key={movie.id} />
+          ))}
       </div>
     </>
   );
