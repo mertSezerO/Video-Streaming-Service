@@ -13,8 +13,10 @@ export default function RecentMoviePages() {
       <div className="poster-page-item">
         <button
           className={
+            context.showingMovie &&
+            context.recentlyAddedMovies &&
             context.showingMovie?.original_title ===
-            context.recentlyAddedMovies[index]?.original_title
+              context.recentlyAddedMovies[index]?.original_title
               ? "highlight"
               : "poster-page"
           }
