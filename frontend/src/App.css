@@ -200,3 +200,25 @@ justify-content: center;
 {
   display: flex;
 }
+
+.foreground-item
+{
+  display: flex;
+  align-items: center;
+  background-color: var(--main-colour)
+}
+
+.foreground-item section
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--search-input);
+  color: var(--background-colour);
+  height: 100%;
+}
+
+.foreground-item h3
+{
+  color: var(--background-colour);
+}
