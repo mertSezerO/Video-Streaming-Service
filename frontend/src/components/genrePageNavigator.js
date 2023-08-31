@@ -1,4 +1,4 @@
-export default function GenrePageNavigator({
+export default function PageNavigator({
   direction,
   genre,
   setMovies,
@@ -26,7 +26,6 @@ export default function GenrePageNavigator({
       .then((movies) => {
         movies.json().then(({ movies }) => {
           setMovies(movies);
-          console.log(movies);
         });
       })
       .catch((err) => {

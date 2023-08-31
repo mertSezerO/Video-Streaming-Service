@@ -4,6 +4,8 @@
   --main-colour: #375197;
   --search:#ede4df;
   --search-input: #9ba8cb;
+  --page-colour: #D3D8E1;
+  --highlight-page: #6E7DBE;
 }
 
 *
@@ -161,10 +163,20 @@ justify-content: center;
 .poster-page
 {
   width: 5%;
-  background-color: var(--search-input);
+  background-color: var(--page-colour);
   padding: 3px;
+  border-width: 1.5px;
   border-radius: 5px;
 }
+
+.highlight
+{
+  width: 5%;
+  padding: 3px;
+  border-radius: 5px;
+  border-width: 1.5px;
+  background-color: var(--highlight-page);
+} 
 
 .poster-item
 {

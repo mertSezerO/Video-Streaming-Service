@@ -11,7 +11,15 @@ export default function RecentMoviePages() {
 
     return (
       <div className="poster-page-item">
-        <button className="poster-page" onClick={showMovie}></button>
+        <button
+          className={
+            context.showingMovie?.original_title ===
+            context.recentlyAddedMovies[index]?.original_title
+              ? "highlight"
+              : "poster-page"
+          }
+          onClick={showMovie}
+        ></button>
       </div>
     );
   }
