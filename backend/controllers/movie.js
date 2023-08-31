@@ -6,7 +6,7 @@ exports.getMovieWithCredits = (req, res, next) => {
     .populate("credits")
     .then((movies) => {
       return res.status(200).json({
-        movies: movies,
+        movie: movies,
       });
     })
     .catch((err) => {

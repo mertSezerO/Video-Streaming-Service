@@ -9,6 +9,7 @@ import SearchProvider from "./contexts/searchContext";
 import SearchPage from "./pages/search";
 
 import Layout from "./components/layout";
+import MoviePage from "./pages/movie";
 function App() {
   return (
     <AppProvider>
@@ -32,6 +33,7 @@ function App() {
               }
             />
           </Route>
+          <Route path="/movies/:id" element={<MoviePage />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

@@ -132,26 +132,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .direction
 {
+  height: 75%;
   width: 25%;
   padding: 15px;
   background-color: var(--search-input);
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--search);
   border: 1px ridge var(--search);
 }
 
 .show
 {
+  height: 100%;
   width: 50%;
 }
 
 .poster-page-list
 {
+  height: 20%;
 width: 100%;
 display: flex;
 justify-content: center;
@@ -182,8 +187,10 @@ justify-content: center;
 
 .poster-item
 {
+  height: 80%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .item-list
