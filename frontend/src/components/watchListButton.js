@@ -16,7 +16,9 @@ export default function WatchListButton({ movie }) {
 
   return (
     <>
-      <button onClick={addToWatchList}>Add to WatchList</button>
+      <button className="list-button" onClick={addToWatchList}>
+        <h2>+</h2>
+      </button>
     </>
   );
 }
