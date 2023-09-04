@@ -7,7 +7,6 @@ export default function RecentMovieItem({ movie }) {
   const navigate = useNavigate();
 
   function showMoviePage() {
-    console.log(movie);
     navigate("/movies/" + movie._id);
   }
 

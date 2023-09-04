@@ -20,7 +20,11 @@ export default function MoviePage() {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, [id]);
 
-  return <div>{movie?.original_title}</div>;
+  return (
+    <div>
+      <h1>{movie?.original_title}</h1>
+    </div>
+  );
 }
