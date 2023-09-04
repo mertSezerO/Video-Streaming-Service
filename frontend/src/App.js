@@ -33,9 +33,9 @@ function App() {
                 </SearchProvider>
               }
             />
+            <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/watchlist" element={<WatchList />} />
           </Route>
-          <Route path="/movies/:id" element={<MoviePage />} />
-          <Route path="/watchlist" element={<WatchList />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>
