@@ -5,7 +5,10 @@ export default function WatchListButton({ movie }) {
   const appContext = useContext(AppContext);
 
   function addToWatchList() {
-    if (!appContext.watchList.includes(movie)) {
+    if (
+      appContext.watchList.filter((aMovie) => aMovie.id === movie.id).length ===
+      0
+    ) {
       const newList = [...appContext.watchList, movie];
       appContext.setWatchList(newList);
     }
