@@ -47,9 +47,9 @@ export default function HomePage() {
     <>
       <RecentMovieList />
       <div className="item-list-container">
-        <GenreMovieList genre={"science fiction"} />
-        <GenreMovieList genre={"fantasy"} />
-        <GenreMovieList genre={"action"} />
+        <GenreMovieList genre={"Science fiction"} />
+        <GenreMovieList genre={"Fantasy"} />
+        <GenreMovieList genre={"Action"} />
       </div>
       <PopularMovieList />
     </>
