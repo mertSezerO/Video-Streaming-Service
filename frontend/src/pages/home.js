@@ -4,13 +4,15 @@ import RecentMovieList from "../components/recentMovieList";
 import { HomeContext } from "../contexts/homeContext";
 import GenreMovieList from "../components/genreMovieList";
 import PopularMovieList from "../components/popularMovieList";
+import { AppContext } from "../contexts/appContext";
 
 export default function HomePage() {
-  const context = useContext(HomeContext);
+  const homeContext = useContext(HomeContext);
+  //const appContext = useContext(AppContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!context.recentlyAddedMovies) {
+    if (!homeContext.recentlyAddedMovies) {
       fetch("http://localhost:5000/movies/find/recent", {
         headers: {
           "Content-Type": "application/json",
@@ -18,15 +20,15 @@ export default function HomePage() {
       })
         .then((movies) => {
           movies.json().then(({ movies }) => {
-            context.setRecentlyAddedMovies(movies);
-            context.setShowingMovie(movies[0]);
+            homeContext.setRecentlyAddedMovies(movies);
+            homeContext.setShowingMovie(movies[0]);
           });
         })
         .catch((err) => {
           console.log(err);
         });
     }
-    if (!context.popularMovies) {
+    if (!homeContext.popularMovies) {
       fetch("http://localhost:5000/movies/find/populars", {
         headers: {
           "Content-Type": "application/json",
@@ -34,14 +36,14 @@ export default function HomePage() {
       })
         .then((movies) => {
           movies.json().then(({ movies }) => {
-            context.setPopularMovies(movies);
+            homeContext.setPopularMovies(movies);
           });
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }, [navigate, context]);
+  }, [navigate, homeContext]);
 
   return (
     <>

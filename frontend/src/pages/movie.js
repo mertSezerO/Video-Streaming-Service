@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AppContext } from "../contexts/appContext";
+import WatchListButton from "../components/watchListButton";
 
 export default function MoviePage() {
   const { id } = useParams();
   const [movie, setMovie] = useState();
+  //const appContext = useContext(AppContext);
   //navigate will be added for watch page
 
   useEffect(() => {
@@ -37,7 +40,9 @@ export default function MoviePage() {
           <div className="display-image">
             <img src={movie.poster} alt={movie.original_title} />
           </div>
-          <div className="display-details"></div>
+          <div className="display-details">
+            <WatchListButton movie={movie} />
+          </div>
         </>
       )}
     </div>

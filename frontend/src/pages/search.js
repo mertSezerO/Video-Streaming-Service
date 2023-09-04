@@ -2,9 +2,11 @@ import { useContext } from "react";
 import SearchBar from "../components/searchBar";
 import { SearchContext } from "../contexts/searchContext";
 import MovieItem from "../components/movieItem";
+import { AppContext } from "../contexts/appContext";
 
 export default function SearchPage() {
-  const context = useContext(SearchContext);
+  const searchContext = useContext(SearchContext);
+  //const appContext = useContext(AppContext);
 
   return (
     <>
@@ -12,8 +14,8 @@ export default function SearchPage() {
         <SearchBar />
       </div>
       <div className="search-item-container">
-        {context.filteredMovies &&
-          context.filteredMovies.map((movie, index) => (
+        {searchContext.filteredMovies &&
+          searchContext.filteredMovies.map((movie, index) => (
             <MovieItem movie={movie} key={index} />
           ))}
       </div>
