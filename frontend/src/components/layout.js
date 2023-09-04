@@ -20,6 +20,16 @@ export default function Layout() {
               Find
             </Link>
           </li>
+          <p>|</p>
+          <li>
+            <Link
+              to={"/watchlist"}
+              className="link"
+              style={{ textDecoration: "none" }}
+            >
+              Watchlist
+            </Link>
+          </li>
         </ul>
       </div>
       <Outlet />

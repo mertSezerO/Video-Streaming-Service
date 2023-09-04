@@ -10,6 +10,7 @@ import SearchPage from "./pages/search";
 
 import Layout from "./components/layout";
 import MoviePage from "./pages/movie";
+import WatchList from "./pages/watchList";
 function App() {
   return (
     <AppProvider>
@@ -34,6 +35,7 @@ function App() {
             />
           </Route>
           <Route path="/movies/:id" element={<MoviePage />} />
+          <Route path="/watchlist" element={<WatchList />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

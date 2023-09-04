@@ -23,8 +23,23 @@ export default function MoviePage() {
   }, [id]);
 
   return (
-    <div>
-      <h1>{movie?.original_title}</h1>
+    <div className="display-container">
+      {movie && (
+        <>
+          <div className="display-content">
+            <h1>{movie.original_title}</h1>
+            <p>{movie.overview}</p>
+            {/* <p>
+              Leading Actors:
+              {movie.credits.cast.map((actor) => actor.name).join(", ")}
+            </p> */}
+          </div>
+          <div className="display-image">
+            <img src={movie.poster} alt={movie.original_title} />
+          </div>
+          <div className="display-details"></div>
+        </>
+      )}
     </div>
   );
 }

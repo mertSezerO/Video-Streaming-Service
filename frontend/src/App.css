@@ -216,6 +216,7 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding-top: 10px;
 }
 
 .foreground-item-list
@@ -281,4 +282,42 @@ justify-content: center;
 {
   box-shadow: inset 0 0 10px var(--main-colour);
   background-color: var(--search-input);
+}
+
+.display-container
+{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'basic image'
+  'info info';
+}
+
+.display-content
+{
+  height: 40%;
+  width: 40%;
+  grid-area: basic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.display-image
+{
+  height: 40%;
+  width: 60%;
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-details
+{
+  height: 60%;
+  width: 100%;
+  grid-area: info;
 }
